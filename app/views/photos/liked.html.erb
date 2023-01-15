@@ -23,12 +23,13 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Following</a>
       </li>
+
     </ul>
   </div>
 </div>
 
-<%= current_user.own_photos.count %>
+<%= current_user.liked_photos.count %>
 
-<% current_user.own_photos.each do |zebra| %>
-  <%= render "photos/photo", giraffe: zebra %>
+<% current_user.liked_photos.each do |photo| %>
+  <%= render "photos/photo", giraffe: photo %>
 <% end %>
