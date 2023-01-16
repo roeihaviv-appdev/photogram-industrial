@@ -25,13 +25,15 @@
       <li class="nav-item">
         <%= link_to "Following", users_following_path(@user.username), class: "nav-link" %>
       </li>
-
     </ul>
   </div>
 </div>
 
-<%= current_user.own_photos.count %>
+<%= current_user.followers.count %>
 
-<% current_user.own_photos.each do |zebra| %>
-  <%= render "photos/photo", giraffe: zebra %>
-<% end %>
+<ul class="list-group">
+  <li class="list-group-item active" aria-current="true"><%= current_user.username %></li>
+  <% current_user.followers.map do |follower| %>
+    <li class="list-group-item"><%= follower.username %></li>
+  <% end %>
+</ul>

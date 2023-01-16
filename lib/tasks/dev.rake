@@ -11,9 +11,17 @@ task sample_data: :environment do
 
   usernames << "alice"
   usernames << "bob"
+  usernames << "charlie"
+  usernames << "david"
+  usernames << "ethen"
+  usernames << "fiona"
+  usernames << "george"
+  usernames << "hanry"
+  usernames << "ido"
+  usernames << "jeremy"
 
   usernames.each do |username|
-    name = Faker::Name.first_name
+    username = Faker::Name.first_name
     User.create(
       email: "#{username}@example.com",
       username: username.downcase,
