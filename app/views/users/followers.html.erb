@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>
+      <%= @user.username %>
+    </h1>
+
+    <ul class="nav nav-pills nav-justified">
+
+      <li class="nav-item">
+        <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Liked photos", liked_photos_path(@user.username), class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Feed", users_feed_path(@user.username), class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Followers", users_followers_path(@user.username), class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Following", users_following_path(@user.username), class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<%= current_user.followers.count %>
+
+<ul class="list-group">
+  <li class="list-group-item active" aria-current="true"><%= current_user.username %></li>
+  <% current_user.followers.map do |follower| %>
+    <li class="list-group-item"><%= follower.username %></li>
+  <% end %>
+</ul>
